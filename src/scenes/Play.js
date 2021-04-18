@@ -77,7 +77,7 @@ class Play extends Phaser.Scene{
         if(this.gameOver && Phaser.Input.Keyboard.JustDown(keyLEFT)){
             this.scene.start('menuScene');
         }
-        this.starfield.tilePositionX -=5;
+        this.starfield.tilePositionX -=3;
         if(!this.gameOver){
             this.p1Rocket.update();
             this.ship01.update();
