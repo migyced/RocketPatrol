@@ -28,7 +28,7 @@ class Menu extends Phaser.Scene{
         this.add.rectangle(0, 0, game.config.width, game.config.height, 0x0081FA).setOrigin(0,0);
         //show menu text
         this.add.text(game.config.width/2, game.config.height/2 - borderUISize - borderPadding, 'AQUA PATROL', menuConfig).setOrigin(0.5);
-        menuConfig.fontSize = '28px';
+        menuConfig.fontSize = '26px';
         menuConfig.backgroundColor = '#0000007F'
         this.add.text(game.config.width/2, game.config.height/2, 'Use <- -> arrows to move & (UP) to fire', menuConfig).setOrigin(0.5);
         menuConfig.backgroundColor = '#FFFFFF';
