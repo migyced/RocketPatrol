@@ -26,8 +26,6 @@ class Play extends Phaser.Scene{
         this.add.rectangle(game.config.width - borderUISize, 0, borderUISize, game.config.height, 0xFFFFFF).setOrigin(0,0);
         //add rocket (p1)
         this.p1Rocket = new Rocket(this, game.config.width/2, game.config.height - borderUISize - borderPadding, 'rocket').setOrigin(0,0);
-        //add rocket (p2)
-        this.p2Rocket = new Octopus(this, game.config.width/4, game.config.height - borderUISize - borderPadding, 'octopus').setOrigin(0,0);
         //add spaceships (x3)
         this.ship01 = new Spaceship(this, game.config.width + borderUISize*6, borderUISize*4, 'spaceship', 0, 30).setOrigin(0,0);
         this.ship02 = new Spaceship(this, game.config.width + borderUISize*3, borderUISize*5 + borderPadding*2, 'spaceship', 0, 20).setOrigin(0,0);
@@ -62,7 +60,7 @@ class Play extends Phaser.Scene{
             fixedWidth: 100
         }
         this.scoreLeft = this.add.text(borderUISize + borderPadding, borderUISize + borderPadding*2, this.p1Score, scoreConfig);
-        this.scoreRight = this.add.text(borderUISize + game.config.width, borderUISize + borderPadding*2, this.p2Score, scoreConfig);
+        this.scoreRight = this.add.text(borderUISize*4, borderUISize + borderPadding*2, this.p2Score, scoreConfig);
         //60 - second play clock
         scoreConfig.fixedWidth = 0;
         //game over flag
@@ -166,7 +164,7 @@ class Play extends Phaser.Scene{
         });
         //score add and repaint
         this.p2Score += ship.points;
-        this.scoreLeft.text = this.p2Score;
+        this.scoreRight.text = this.p2Score;
         this.sound.play('sfx_explosion');
     }
 }
