@@ -4,7 +4,7 @@ class Octopus extends Phaser.GameObjects.Sprite{
 
         scene.add.existing(this);
         this.isFiring = false;
-        this.moveSpeed = 2;
+        this.moveSpeed = game.settings.spaceshipSpeed;
         this.sfxRocket = scene.sound.add('sfx_rocket');
     }
 
