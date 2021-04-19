@@ -134,8 +134,8 @@ class Play extends Phaser.Scene{
     }
 
     particleAnimation(rocket){
-        const p = this.add.particles('particle');
-        const e = p.createEmitter();
+        var p = this.add.particles('particle');
+        var e = p.createEmitter();
         e.setPosition(rocket.x, rocket.y);
         e.setSpeed(200);
         e.setBlendMode(Phaser.BlendModes.ADD);
