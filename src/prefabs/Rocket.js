@@ -9,20 +9,6 @@ class Rocket extends Phaser.GameObjects.Sprite{
         this.moveSpeed = 1; // pexels per frame
         this.sfxRocket = scene.sound.add('sfx_rocket'); // add rocket sfx
     } 
-
-    preload(){
-        this.load.image('particle', './assets/particle.png');
-    }
-
-    particleAnimation(){
-        var particles = this.add.image('particle');
-        var emitter = particles.createEmitter();
-
-        emitter.setPosition(this.x, this.y);
-        emitter.setSpeed(400);
-        emitter.setBlendMode(Phaser.BlendModes.ADD);
-    }
-
     update(){
         //left/right movement
         if(!this.isFiring){
@@ -49,7 +35,6 @@ class Rocket extends Phaser.GameObjects.Sprite{
 
     reset(){
         this.isFiring = false;
-        this.particleAnimation();
         this.y = game.config.height - borderUISize - borderPadding;
     }
 }

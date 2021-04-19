@@ -9,7 +9,6 @@ class Play extends Phaser.Scene{
         this.load.image('spaceship', './assets/spaceship.png');
         this.load.image('starfield', './assets/starfield.png');
         this.load.image('octopus', './assets/octopus.png');
-        this.load.image('particle', './assets/particle.png');
         //load spritesheet
         this.load.spritesheet('explosion','./assets/explosion.png', {frameWidth: 64, frameHeight: 32, startFrame: 0, endFrame: 9});// sets explosion order from frame 0 to frame 9 & defines the dimensions of a frame
         
