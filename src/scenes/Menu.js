@@ -14,7 +14,7 @@ class Menu extends Phaser.Scene{
         //menu text configuration
         let menuConfig = {
             fontFamily: 'Courier',
-            fontSize: '28px',
+            fontSize: '35px',
             backgroundColor: '#0081FA',
             color: 'white',
             align: 'right',
@@ -32,6 +32,7 @@ class Menu extends Phaser.Scene{
         menuConfig.backgroundColor = '#FFFFFF';
         menuConfig.color = '#0012D6'
         menuConfig.config = '#000';
+        menuConfig.fontSize = '28px';
         this.add.text(game.config.width/2, game.config.height/2 + borderUISize + borderPadding, 'Press <- for Novice or -> for Expert', menuConfig).setOrigin(0.5);
         //define keys
         keyLEFT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.LEFT);
