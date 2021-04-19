@@ -1,7 +1,7 @@
 //Rocket prefab
 class Rocket extends Phaser.GameObjects.Sprite{
-    constructor(scene, x, y, texture, frame, player){
-        super(scene, x, y, texture, frame, player);
+    constructor(scene, x, y, texture,  player){
+        super(scene, x, y, texture,  player);
 
         //add object to existing scene
         scene.add.existing(this); //add to existing, displayList, updateList
