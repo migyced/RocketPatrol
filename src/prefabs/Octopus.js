@@ -22,7 +22,7 @@ class Octopus extends Phaser.GameObjects.Sprite{
             this.isFiring = true;
             this.sfxRocket.play(); //play sfx
         }
-        //if fired, move up
+        //if fired, move up, randomly moves a couple pixels left and right
         if(this.isFiring && this.y >= borderUISize*3 + borderPadding){
             this.y -= this.moveSpeed;
             if(Math.random()>0.5){
