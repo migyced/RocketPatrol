@@ -9,6 +9,7 @@ class Play extends Phaser.Scene{
         this.load.image('spaceship', './assets/spaceship.png');
         this.load.image('starfield', './assets/starfield.png');
         this.load.image('octopus', './assets/octopus.png');
+        this.load.image('particle', './assets/particle.png');
         //load spritesheet
         this.load.spritesheet('explosion','./assets/explosion.png', {frameWidth: 64, frameHeight: 32, startFrame: 0, endFrame: 9});// sets explosion order from frame 0 to frame 9 & defines the dimensions of a frame
         
@@ -87,14 +88,17 @@ class Play extends Phaser.Scene{
         }
         //check collisions
         if(this.checkCollision(this.p1Rocket, this.ship03)){
+            this.particleAnimation();
             this.p1Rocket.reset();
             this.shipExplode(this.ship03);
         }
         if(this.checkCollision(this.p1Rocket, this.ship02)){
+            this.particleAnimation();
             this.p1Rocket.reset();
             this.shipExplode(this.ship02);
         }
         if(this.checkCollision(this.p1Rocket, this.ship01)){
+            this.particleAnimation();
             this.p1Rocket.reset();
             this.shipExplode(this.ship01);
         }
@@ -127,5 +131,13 @@ class Play extends Phaser.Scene{
         this.p1Score += ship.points;
         this.scoreLeft.text = this.p1Score;
         this.sound.play('sfx_explosion');
+    }
+
+    particleAnimation(rocket){
+        const p = this.add.particles('particle');
+        const e = p.createEmitter();
+        e.setPosition(rocket.x, rocket.y);
+        e.setSpeed(200);
+        e.setBlendMode(Phaser.BlendModes.ADD);
     }
 }
