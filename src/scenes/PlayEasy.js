@@ -1,11 +1,11 @@
-class Play extends Phaser.Scene{
+class PlayEasy extends Phaser.Scene{
     constructor(){
-        super("playScene");
+        super("playScene2");
     }
 
     preload(){
         //load images/tile sprites
-        this.load.image('rocket', './assets/rocket.png');
+        //this.load.image('rocket', './assets/rocket.png');
         this.load.image('spaceship', './assets/spaceship.png');
         this.load.image('starfield', './assets/starfield.png');
         this.load.image('octopus', './assets/octopus.png');
@@ -18,14 +18,14 @@ class Play extends Phaser.Scene{
         //place tiel sprite
         this.starfield = this.add.tileSprite(0, 0, 640, 480, 'starfield').setOrigin(0, 0);
         // green UI background
-        this.add.rectangle(0, borderUISize + borderPadding, game.config.width, borderUISize*2, 0xFFCCCC).setOrigin(0, 0);
+        this.add.rectangle(0, borderUISize + borderPadding, game.config.width, borderUISize*2, 0x000000, 0.2).setOrigin(0, 0);
         //white borders
         this.add.rectangle(0, 0, game.config.width, borderUISize, 0xFFFFFF).setOrigin(0,0);
         this.add.rectangle(0, game.config.height - borderUISize, game.config.width, borderUISize, 0xFFFFFF).setOrigin(0, 0);
         this.add.rectangle(0, 0, borderUISize, game.config.height, 0xFFFFFF).setOrigin(0,0);
         this.add.rectangle(game.config.width - borderUISize, 0, borderUISize, game.config.height, 0xFFFFFF).setOrigin(0,0);
         //add rocket (p1)
-        this.p1Rocket = new Rocket(this, game.config.width/2, game.config.height - borderUISize - borderPadding, 'rocket').setOrigin(0,0);
+        this.p1Rocket = new Octopus(this, game.config.width/2, game.config.height - borderUISize - borderPadding, 'octopus').setOrigin(0,0);
         //add spaceships (x3)
         this.ship01 = new Spaceship(this, game.config.width + borderUISize*6, borderUISize*4, 'spaceship', 0, 30).setOrigin(0,0);
         this.ship02 = new Spaceship(this, game.config.width + borderUISize*3, borderUISize*5 + borderPadding*2, 'spaceship', 0, 20).setOrigin(0,0);
@@ -78,7 +78,7 @@ class Play extends Phaser.Scene{
         if(this.gameOver && Phaser.Input.Keyboard.JustDown(keyLEFT)){
             this.scene.start('menuScene');
         }
-        this.starfield.tilePositionX -=5;
+        this.starfield.tilePositionX -=2;
         if(!this.gameOver){
             this.p1Rocket.update();
             this.ship01.update();
@@ -100,12 +100,12 @@ class Play extends Phaser.Scene{
         }
     }
 
-    checkCollision(rocket, ship){
+    checkCollision(octopus, ship){
         //simple AABB checking
-        if(rocket.x < ship.x + ship. width &&
-            rocket.x + rocket.width > ship.x &&
-            rocket.y < ship.y + ship.height &&
-            rocket.height + rocket.y > ship.y){
+        if(octopus.x < ship.x + ship. width &&
+            octopus.x + octopus.width > ship.x &&
+            octopus.y < ship.y + ship.height &&
+            octopus.height + octopus.y > ship.y){
                 return true;
             }else{
                 return false;
