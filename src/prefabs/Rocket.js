@@ -15,7 +15,7 @@ class Rocket extends Phaser.GameObjects.Sprite{
     }
 
     particleAnimation(){
-        var particles = this.add.particles('particle');
+        var particles = this.add.image('particle');
         var emitter = particles.createEmitter();
 
         emitter.setPosition(this.x, this.y);
