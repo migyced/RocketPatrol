@@ -67,7 +67,7 @@ class Play extends Phaser.Scene{
         //game over flag
         this.gameOver = false;
         
-        this.clock1 = this.time.delayedCall(game.settings.gameTimer, ()=>{
+        this.clock = this.time.delayedCall(game.settings.gameTimer, ()=>{
             this.add.rectangle(0,0,game.config.width *2, game.config.height*2, 'black',  0.5);
             this.add.text(game.config.width/2, game.config.height/3, 'GAME OVER', scoreConfig).setOrigin(0.5);
             if(this.p1Score>this.p2Score){
