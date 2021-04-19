@@ -30,7 +30,7 @@ class Menu extends Phaser.Scene{
         this.add.text(game.config.width/2, game.config.height/2 - borderUISize - borderPadding, 'AQUA PATROL', menuConfig).setOrigin(0.5);
         menuConfig.fontSize = '28px';
         menuConfig.backgroundColor = '#0000007F'
-        this.add.text(game.config.width/2, game.config.height/2, 'Use <- -> arrows to move & (F) to fire', menuConfig).setOrigin(0.5);
+        this.add.text(game.config.width/2, game.config.height/2, 'Use <- -> arrows to move & (UP) to fire', menuConfig).setOrigin(0.5);
         menuConfig.backgroundColor = '#FFFFFF';
         menuConfig.color = '#0012D6'
         menuConfig.config = '#000';
@@ -48,7 +48,7 @@ class Menu extends Phaser.Scene{
                 gameTimer: 60000
             }
             this.sound.play('sfx_select');
-            this.scene.start('playScene2');
+            this.scene.start('playScene');
             //
         }
         if(Phaser.Input.Keyboard.JustDown(keyRIGHT)){

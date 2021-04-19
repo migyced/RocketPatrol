@@ -26,9 +26,9 @@ class Octopus extends Phaser.GameObjects.Sprite{
         if(this.isFiring && this.y >= borderUISize*3 + borderPadding){
             this.y -= this.moveSpeed;
             if(Math.random()>0.5){
-                this.x += Math.floor(Math.random()*8);
+                this.x += Math.floor(Math.random()*16);
             }else{
-                this.x -= Math.floor(Math.random()*8);
+                this.x -= Math.floor(Math.random()*16);
             }
         }
         //reset on miss
