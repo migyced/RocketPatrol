@@ -18,7 +18,7 @@ class Octopus extends Phaser.GameObjects.Sprite{
             }
         }
         //fire button
-        if(Phaser.Input.Keyboard.JustDown(keyF)){
+        if(Phaser.Input.Keyboard.JustDown(keyUP)){
             this.isFiring = true;
             this.sfxRocket.play(); //play sfx
         }
